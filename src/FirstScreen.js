@@ -8,10 +8,13 @@
 
 import React, { useState } from "react";
 import { Switch} from 'react-native'
+import { useNavigation } from '@react-navigation/native';
+
 import {
   Button,
   StyleSheet,
   Image,
+  navigation,
   TextInput,
   Text,
   View,
@@ -26,6 +29,7 @@ export default function FirstScreen()
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const [number, onChangeNumber] = React.useState(null);
+  const navigation = useNavigation();
   const [switchValue, setSwitchValue] = useState(false);
  
   const toggleSwitch2 = (value) => {
@@ -62,7 +66,7 @@ return (
       
       <Button
        title='Press Me' 
-       onPress={() =>  this.props.navigation.navigate('SecondScreen')}
+       onPress={() =>   navigation.navigate('SecondScreen', { name: 'Jane' })}
        style={{
         backgroundColor:'green',
         fontSize: 22,
@@ -112,6 +116,9 @@ return (
  )
 
 }
+
+
+
 
 const styles = StyleSheet.create({
   baseText: {
