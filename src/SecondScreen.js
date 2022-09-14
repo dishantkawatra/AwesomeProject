@@ -37,7 +37,11 @@
  {
 
   const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    // <Item title={item.title} />
+    <View style={styles.item}>
+    <Text style={styles.title}>{item.title}</Text>
+    <Text style={{color:'white'}}>{item.id}</Text>
+  </View>
   );
 
   const Item = ({ title }) => (
@@ -50,14 +54,8 @@
   
    return(
     <View style={styles.container}>
-
-
-    <Text>
-
-      dsadsad
-    </Text>
        <FlatList
-       style={{flexGrow:1,backgroundColor:'green'}}
+       style={{flexGrow:1,backgroundColor:'black'}}
        renderItem={renderItem}
        data={flatListdata}
        keyExtractor={item => item.id}>
@@ -74,17 +72,18 @@
 
  const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    flex: 1
   },
   item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+    backgroundColor: 'red',
+    padding: 5,
+    marginTop:10,
+    marginVertical: 2,
+    marginHorizontal: 8,
   },
   title: {
-    fontSize: 32,
+    fontSize: 18,
+    color:"white"
   },
 });
 
