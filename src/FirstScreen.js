@@ -25,7 +25,7 @@ import {
 export default function FirstScreen()
 {
   const titleText = "Bird's dsads"
-  const baseText = "This is base "
+  const baseText = "My Name is Devank Sharma"
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const [number, onChangeNumber] = React.useState(null);

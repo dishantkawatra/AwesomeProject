@@ -10,7 +10,7 @@
  import {
    FlatList,
    StyleSheet,
-   StatusBar,
+   TouchableOpacity,
    Text,
    View,
  } from 'react-native';
@@ -28,6 +28,35 @@
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
     title: 'Third Item',
   },
+
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d74',
+    title: 'Fourth Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d76',
+    title: 'Fifth Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d52',
+    title: 'Sixth Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29472',
+    title: 'Seventh Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d77',
+    title: 'Eighth Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e24d72',
+    title: 'Nineth Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e23d72',
+    title: 'Tenth Item',
+  },
 ];
  
  
@@ -35,32 +64,36 @@
  
  export default function SecondScreen()
  {
-
   const renderItem = ({ item }) => (
-    // <Item title={item.title} />
-    <View style={styles.item}>
+  
     <Text style={styles.title}>{item.title}</Text>
-    <Text style={{color:'white'}}>{item.id}</Text>
-  </View>
+
   );
 
-  const Item = ({ title }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
+  const _onPress = () => {
+    // your code on item press
+ };
+
+  const Item = ({ item }) => (
+ <TouchableOpacity onPress={_onPress}>
+   <View style={styles.item}>
+       <Text style={styles.title}>{item.title}</Text>
+     </View>
+ </TouchableOpacity>
+    
+);
 
 
   
    return(
     <View style={styles.container}>
+
+
        <FlatList
        style={{flexGrow:1,backgroundColor:'black'}}
-       renderItem={renderItem}
+       renderItem={Item}
        data={flatListdata}
        keyExtractor={item => item.id}>
-      
-       
        </FlatList>
     </View>
 
