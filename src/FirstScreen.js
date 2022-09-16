@@ -7,14 +7,13 @@
  */
 
 import React, { useState } from "react";
-import { Switch} from 'react-native'
+import { Switch,TouchableOpacity} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 import {
   Button,
   StyleSheet,
   Image,
-  navigation,
   TextInput,
   Text,
   View,
@@ -44,12 +43,14 @@ return (
     // Try setting `flexDirection` to `"row"`.
     flexDirection: "column"
   }]}>
-    <View style={{ flex: 2, backgroundColor: "red" }}>
+
+
+    <TouchableOpacity style={{ flex: 2, backgroundColor: "red" }}>
 
     <Text style={styles.baseText}>{baseText}</Text>
   <Text style={styles.titleText}>{titleText}</Text>
 
-    </View>
+    </TouchableOpacity>
    
     
     <View style={{ flex: 3, backgroundColor: "darkorange" }}>

@@ -7,15 +7,17 @@
  */
 
  import React from "react";
+ import { useNavigation } from '@react-navigation/native';
  import {
    FlatList,
    StyleSheet,
    TouchableOpacity,
    Text,
+   Alert,
    View,
  } from 'react-native';
 
- const flatListdata = [
+   const flatListdata = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     title: 'First Item',
@@ -64,19 +66,19 @@
  
  export default function SecondScreen()
  {
-  const renderItem = ({ item }) => (
-  
-    <Text style={styles.title}>{item.title}</Text>
+ const navigation = useNavigation();
 
-  );
 
-  const _onPress = () => {
-    // your code on item press
- };
 
-  const Item = ({ item }) => (
- <TouchableOpacity onPress={_onPress}>
-   <View style={styles.item}>
+
+function actionOnRow(item,index)
+{
+  navigation.goBack()
+}
+
+  const Item = ({item,index}) => (
+ <TouchableOpacity onPress={ () => actionOnRow(item,index)}>
+   <View style={[styles.item,{backgroundColor:'yellow'}]}>
        <Text style={styles.title}>{item.title}</Text>
      </View>
  </TouchableOpacity>
@@ -91,7 +93,7 @@
 
        <FlatList
        style={{flexGrow:1,backgroundColor:'black'}}
-       renderItem={Item}
+      renderItem={Item}
        data={flatListdata}
        keyExtractor={item => item.id}>
        </FlatList>
