@@ -73,7 +73,8 @@
 
 function actionOnRow(item,index)
 {
-  navigation.goBack()
+  //navigation.goBack()
+  navigation.navigate('ThirdScreen')
 }
 
   const Item = ({item,index}) => (
