@@ -17,7 +17,7 @@ const RootNavigator = () => {
           options={{ title: 'Welcome' }}
         />
         <Stack.Screen name="SecondScreen" component={SecondScreen} />
-        <Stack.Screen name="ThirdScreen" component={ThirdScreenApiHit} />
+        <Stack.Screen name="ThirdScreenApiHit" component={ThirdScreenApiHit} />
       </Stack.Navigator>
     </NavigationContainer>
   );

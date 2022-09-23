@@ -6,18 +6,19 @@
  * @flow strict-local
  */
 
- import React from "react";
- import { useNavigation } from '@react-navigation/native';
- import {
-   FlatList,
-   StyleSheet,
-   TouchableOpacity,
-   Text,
-   Alert,
-   View,
- } from 'react-native';
+import React from "react";
+import { useNavigation } from '@react-navigation/native';
+import {
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  View,
+} from 'react-native';
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "./redux/actions/Action";
 
-   const flatListdata = [
+const flatListdata = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     title: 'First Item',
@@ -60,70 +61,75 @@
     title: 'Tenth Item',
   },
 ];
- 
- 
-
- 
- export default function SecondScreen()
- {
- const navigation = useNavigation();
 
 
 
 
-function actionOnRow(item,index)
-{
-  //navigation.goBack()
-  navigation.navigate('ThirdScreen')
-}
+export default function SecondScreen() {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
 
-  const Item = ({item,index}) => (
- <TouchableOpacity onPress={ () => actionOnRow(item,index)}>
-   <View style={[styles.item,{backgroundColor:'yellow'}]}>
-       <Text style={styles.title}>{item.title}</Text>
-     </View>
- </TouchableOpacity>
-    
-);
+  function addItem(item) {
+
+    dispatch(addItemToCart(item));
+    navigation.navigate('ThirdScreenApiHit')
+
+  }
 
 
-  
-   return(
+
+
+  function actionOnRow(item, index) {
+    //navigation.goBack()
+    navigation.navigate('ThirdScreenApiHit')
+  }
+
+  const Item = ({ item, index }) => (
+    <TouchableOpacity onPress={() => addItem(item, index)}>
+      <View style={[styles.item, { backgroundColor: 'yellow' }]}>
+        <Text style={styles.title}>{item.title}</Text>
+      </View>
+    </TouchableOpacity>
+
+  );
+
+
+
+  return (
     <View style={styles.container}>
 
 
-       <FlatList
-       style={{flexGrow:1,backgroundColor:'black'}}
-      renderItem={Item}
-       data={flatListdata}
-       keyExtractor={item => item.id}>
-       </FlatList>
+      <FlatList
+        style={{ flexGrow: 1, backgroundColor: 'black' }}
+        renderItem={Item}
+        data={flatListdata}
+        keyExtractor={item => item.id}>
+      </FlatList>
     </View>
 
 
-   )
- 
- 
- }
+  )
 
- const styles = StyleSheet.create({
+
+}
+
+const styles = StyleSheet.create({
   container: {
     flex: 1
   },
   item: {
     backgroundColor: 'red',
     padding: 5,
-    marginTop:10,
+    marginTop: 10,
     marginVertical: 2,
     marginHorizontal: 8,
   },
   title: {
     fontSize: 18,
-    color:"white"
+    color: "white"
   },
 });
 
 
- 
- 
- 
+
+

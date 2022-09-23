@@ -7,7 +7,7 @@
  */
 
 import React, { useState } from "react";
-import { Switch,TouchableOpacity} from 'react-native'
+import { Switch, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 import {
@@ -21,8 +21,7 @@ import {
 
 
 
-export default function FirstScreen()
-{
+export default function FirstScreen() {
   const titleText = "Bird's dsads"
   const baseText = "My Name is Devank Sharma"
   const [isEnabled, setIsEnabled] = useState(false);
@@ -30,91 +29,91 @@ export default function FirstScreen()
   const [number, onChangeNumber] = React.useState(null);
   const navigation = useNavigation();
   const [switchValue, setSwitchValue] = useState(false);
- 
+
   const toggleSwitch2 = (value) => {
     //To handle switch toggle
     setSwitchValue(value);
     //State changes according to switch
   };
-return (
+  return (
 
 
-  <View style={[styles.container, {
-    // Try setting `flexDirection` to `"row"`.
-    flexDirection: "column"
-  }]}>
+    <View style={[styles.container, {
+      // Try setting `flexDirection` to `"row"`.
+      flexDirection: "column"
+    }]}>
 
 
-    <TouchableOpacity style={{ flex: 2, backgroundColor: "red" }}>
+      <TouchableOpacity style={{ flex: 2, backgroundColor: "red" }}>
 
-    <Text style={styles.baseText}>{baseText}</Text>
-  <Text style={styles.titleText}>{titleText}</Text>
+        <Text style={styles.baseText}>{baseText}</Text>
+        <Text style={styles.titleText}>{titleText}</Text>
 
-    </TouchableOpacity>
-   
-    
-    <View style={{ flex: 3, backgroundColor: "darkorange" }}>
-    <Image
-        style={styles.tinyLogo}
-        source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }}
-      />
+      </TouchableOpacity>
 
 
-      {/*  Button  */}
+      <View style={{ flex: 3, backgroundColor: "darkorange" }}>
+        <Image
+          style={styles.tinyLogo}
+          source={{
+            uri: 'https://reactnative.dev/img/tiny_logo.png',
+          }}
+        />
 
-      
-      <Button
-       title='Press Me' 
-       onPress={() =>   navigation.navigate('SecondScreen', { name: 'Jane' })}
-       style={{
-        backgroundColor:'green',
-        fontSize: 22,
-        fontWeight: 'bold'
-       }}>
 
-      </Button>
+        {/*  Button  */}
+
+
+        <Button
+          title='Press Me'
+          onPress={() => navigation.navigate('SecondScreen', { name: 'Jane' })}
+          style={{
+            backgroundColor: 'green',
+            fontSize: 22,
+            fontWeight: 'bold'
+          }}>
+
+        </Button>
 
 
         {/* First Switch  */}
 
-    <Switch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={false ? "#f5dd4b" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
+        <Switch
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={false ? "#f5dd4b" : "#f4f3f4"}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isEnabled}
+        />
 
-      {/* Second Switch */}
+        {/* Second Switch */}
 
-       <Switch
-          style={{marginTop: 100}}
+        <Switch
+          style={{ marginTop: 100 }}
           onValueChange={toggleSwitch2}
           value={switchValue}
-/>
-      
+        />
 
-    </View>
-    
-   
-        <View style={{ flex: 2, backgroundColor: "green" }}>
-       {/* Input TextView */}
+
+      </View>
+
+
+      <View style={{ flex: 2, backgroundColor: "green" }}>
+        {/* Input TextView */}
 
         <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="placeholder"
-        keyboardType="numeric"
-      />
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="placeholder"
+          keyboardType="numeric"
+        />
 
-        </View>
-  </View>
+      </View>
+    </View>
 
 
- )
+  )
 
 }
 
@@ -124,7 +123,7 @@ return (
 const styles = StyleSheet.create({
   baseText: {
     fontFamily: "Cochin",
-    fontSize:30
+    fontSize: 30
   },
   fixToText: {
     flexDirection: 'row',
