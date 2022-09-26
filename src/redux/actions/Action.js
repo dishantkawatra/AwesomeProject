@@ -1,7 +1,11 @@
 import { ADD_ITEM } from "../ActionType"
 
-export const addItemToCart = (data) => ({
-    type: ADD_ITEM,
-    payload: data
+export const addItemToCart = (data) => {
+    // type: ADD_ITEM,
+    // payload: data
+   return {
+        type: ADD_ITEM,
+        payload: data
+    }
 
-})
+}

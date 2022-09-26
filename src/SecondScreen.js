@@ -70,8 +70,8 @@ export default function SecondScreen() {
   const dispatch = useDispatch();
 
   function addItem(item) {
-
-    dispatch(addItemToCart(item));
+    const user = {name: "Rei"}
+    dispatch(addItemToCart(user));
     navigation.navigate('ThirdScreenApiHit')
 
   }

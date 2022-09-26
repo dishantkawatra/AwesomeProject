@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Alert, FlatList, Text, View } from 'react-native';
+import { color } from 'react-native-reanimated';
 import { useSelector } from 'react-redux';
 
 
@@ -35,7 +36,7 @@ export default ThirdScreenApiHit = () => {
             data={data.articles}
             keyExtractor={({ id }, index) => id}
             renderItem={({ item }) => (
-              <Text>{item.id + '. ' + item.title}</Text>
+              <Text style={{color:'black'}}>{item.id + '. ' + item.title}</Text>
             )}
           />
         </View>
