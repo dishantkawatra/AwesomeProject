@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import AddItemReducer from "./Reducers";
+import AddItemReducer from "./addItemReducer";
 
 
-export const RootReducers = combineReducers({
+ const RootReducers = combineReducers({
   AddItemReducer,
  
 });
 
-// export default (state: any, action: any) =>
-//   RootReducers(action.type === LOGOUT.LOGOUT ? undefined : state, action);
+
+export default RootReducers
