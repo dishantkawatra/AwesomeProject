@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import RootReducers from "../reducers/RootReducers";
+import  RootReducers  from "../reducers/RootReducers";
 
 const initialState = {};
 

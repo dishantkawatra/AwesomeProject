@@ -1,4 +1,4 @@
-import { ADD_ITEM } from "../ActionType"
+import { ADD_ITEM } from '../ActionType';
 
 const initialState = {
   dataSource: [],
@@ -7,7 +7,8 @@ const initialState = {
 const AddItemReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      return Object.assign({}, state, { dataSource: action.dataSource });
+      // eslint-disable-next-line prettier/prettier
+      return Object.assign({}, state, { dataSource: action.payload });
 
     default:
       return state;

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, FlatList, Text, View } from 'react-native';
 import { color } from 'react-native-reanimated';
 import { useSelector } from 'react-redux';
-import AddItemReducer from './redux/reducers/addItemReducer';
+
 
 export default ThirdScreenApiHit = () => {
   const [isLoading, setLoading] = useState(true);
