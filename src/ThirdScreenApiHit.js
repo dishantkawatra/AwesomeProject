@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Alert, FlatList, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
@@ -14,17 +15,18 @@ export default ThirdScreenApiHit = () => {
 
   useEffect(() => {
     Alert.alert(JSON.stringify(items))
-    fetch('https://raw.githubusercontent.com/adhithiravi/React-Hooks-Examples/master/testAPI.json')
-      .then((response) => response.json())
-      .then((json) => setData(json))
+  axios.get('https://raw.githubusercontent.com/adhithiravi/React-Hooks-Examples/master/testAPI.json')
+      // .then((response) => response.json())
+      .then((response) => setData(response.data))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
 
 
-  return (
 
-    <View style={{ flex: 1, padding: 24 }}>
+
+  return (
+ <View style={{ flex: 1, padding: 24 }}>
       {isLoading ? <Text>Loading...</Text> :
         (<View style={{ flex: 1, flexDirection: 'column' }}>
           <Text style={{ fontSize: 18, color: 'green', textAlign: 'center' }}>{data.title}</Text>
