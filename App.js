@@ -5,7 +5,7 @@ import configureStore from "./src/redux/store/store";
 import { Alert } from "react-native";
 const store = configureStore();
 function App() {
- // Alert.alert(JSON.stringify(store))
+  Alert.alert(JSON.stringify(store))
   
   return (
  <Provider store={store}>
