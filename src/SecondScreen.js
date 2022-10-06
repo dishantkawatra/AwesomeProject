@@ -13,6 +13,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
+  Image,
   View,
 } from 'react-native';
 import { useDispatch } from "react-redux";
@@ -47,19 +48,7 @@ const flatListdata = [
   {
     id: '58694a0f-3da1-471f-bd96-145571e29472',
     title: 'Seventh Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d77',
-    title: 'Eighth Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e24d72',
-    title: 'Nineth Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e23d72',
-    title: 'Tenth Item',
-  },
+  }
 ];
 
 
@@ -86,7 +75,12 @@ export default function SecondScreen() {
 
   const Item = ({ item, index }) => (
     <TouchableOpacity onPress={() => addItem(item, index)}>
-      <View style={[styles.item, { backgroundColor: 'yellow' }]}>
+      <View style={[styles.item, { backgroundColor: 'red' }]}>
+
+        <Image style={styles.imagestyle}
+        source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}>
+
+        </Image>  
         <Text style={styles.title}>{item.title}</Text>
       </View>
     </TouchableOpacity>
@@ -118,16 +112,25 @@ const styles = StyleSheet.create({
     flex: 1
   },
   item: {
-    backgroundColor: 'red',
-    padding: 5,
+    backgroundColor: 'black',
+    padding: 10,
     marginTop: 10,
+    flexDirection:'row',
+    alignItems:'center',
     marginVertical: 2,
     marginHorizontal: 8,
   },
   title: {
     fontSize: 18,
+    marginStart:10, 
+    alignItems:'center',
     color: "white"
   },
+  imagestyle:{
+   
+    width:25,
+    height:25
+  }
 });
 
 
